@@ -1,0 +1,604 @@
+install.packages("combinat")
+require(combinat)#
+permn(3)#
+combn(3, 2)
+combn(6, 2)
+1/15
+8/15
+1/6
+mtcars
+data()
+state.region (state)
+state.region
+state.name
+sleep
+presidents
+iris
+crimtab
+USArrests
+trees
+state.x77
+head(mtcars)
+head(mtcars,5)
+str(mtcars)
+head(mtcars,5)#
+str(mtcars)#
+summary(mtcars)
+# counting the numbers of rows and columsn#
+nrow(mtcars)#
+ncols(mtcars)
+# counting the numbers of rows and columsn#
+nrow(mtcars)#
+ncol(mtcars)
+# See https://www.statmethods.net/management/reshape.html#
+# example using built-in dataset #
+mtcars#
+t(mtcars)#
+#
+# example of melt function #
+library(reshape)#
+mdata <- melt(mydata, id=c("id","time"))#
+#
+# cast the melted data#
+# cast(data, formula, function) #
+subjmeans <- cast(mdata, id~variable, mean)#
+timemeans <- cast(mdata, time~variable, mean)
+head(mtcars)#
+t(mtcars)
+library(reshape)
+head(mtcars)
+# creating data#
+name <- c("Chris","Mark","Joe","Edwin")#
+time <- c("early","late","early","late")#
+age <- c(23,42,22,19)#
+data <- c(5,3,6,2)#
+#
+df <- data.frame(name,time,age,data)
+df
+melt(df, id=c("name","time"))
+cast(df,name~age, mean)
+cast(df,name~time, mean)
+cast(df,name~time + data, mean)
+cast(df,name~data, mean)
+cast(df,~data, mean)
+cast(df,~age, mean)
+cast(df,.~age, mean)
+cast(df,~age, mean)
+df
+cast(df,~name, mean)
+cast(df,age~name, mean)
+cast(df,~age, mean)
+cast(df,variable~, mean)
+string <- "This is a sample string"#
+cat(substring(string,1,10),substring(string,15,19),"\n",sep="\t")#
+cat("Roots of two: ",format(2^(1:10),digit=2),"\n")
+# make a matrix with array or matrix#
+matrix1 <- array(1:10, dim=c(2,5))#
+matrix2 <- matrix(1:10,2,5)#
+matrix3 <- 1:10; dim(array3) <- c(2,5)#
+class(matrix1)#
+#
+# numbers are recycled if the number of cells is larger#
+array(1:10, dim=c(5,10))
+# make a matrix with array or matrix#
+matrix1 <- array(1:10, dim=c(2,5))#
+matrix2 <- matrix(1:10,2,5)#
+matrix3 <- 1:10; dim(matrix3) <- c(2,5)#
+class(matrix1)#
+#
+# numbers are recycled if the number of cells is larger#
+array(1:10, dim=c(5,10))
+matrix1
+# make a matrix with array or matrix#
+matrix1 <- array(1:10, dim=c(2,5))#
+matrix1#
+class(matrix1)#
+#
+matrix2 <- matrix(1:10,2,5)#
+matrix2#
+class(matrix2)#
+#
+matrix3 <- 1:10; dim(matrix3) <- c(2,5)#
+matrix3#
+class(matrix3)#
+#
+# numbers are recycled if the number of cells is larger#
+array(1:10, dim=c(5,10))
+# this performs cell-by-cell calculation#
+m1 <- array(1:10, dim=c(2,5))#
+m1 + m1#
+m1 * m1#
+#
+# matrix calculus from J.Penzer's note (2006)#
+m4 <- array(1:3, c(4,2)) #
+m5 <- array(3:8, c(2,3)) #
+m4 %*% m5 #
+m6 <- array(c(1,3,2,1),c(2,2)) #
+m6 #
+v1 <- array(c(1,0), c(2,1)) #
+solve(m6,v1) #
+solve(m6) # inverts m6 #
+# does the same as solve(m6,v1) #
+solve(m6) %*% v1
+options()
+options(digits)
+options$digits
+100/998
+options(digits=7)#
+100/998#
+#
+options(digits=3)#
+100/998
+options(digits=7)#
+100/998#
+#
+options(digits=3)#
+100/999
+options(digits=7)#
+100/998#
+#
+options(digits=3)#
+100/3242
+options(digits=7)#
+100/998#
+#
+options(digits=3)#
+100/324
+print(c(3e4, 3e1))
+print(c(30000, 30))
+# put biase toward non-scientific notations (default is 0)#
+num = 12383828281831342#
+num#
+#
+options(scipen = 100, digits = 4)#
+num
+demo.pal <- function(n, border = if (n<32) "light gray" else NA,#
+         main = paste("color palettes;  n=",n),#
+         ch.col = c("rainbow(n, start=.7, end=.1)", "heat.colors(n)",#
+         "terrain.colors(n)", "topo.colors(n)","cm.colors(n)")) {#
+  nt <- length(ch.col)#
+  i <- 1:n; j <- n / nt; d <- j/6; dy <- 2*d#
+  plot(i,i+d, type="n", yaxt="n", ylab="", main=main)#
+  for (k in 1:nt) {#
+      rect(i-.5, (k-1)*j+ dy, i+.4, k*j, #
+      col = eval(parse(text=ch.col[k])), border = border)#
+      text(2*j,  k * j +dy/4, ch.col[k])#
+  }#
+}#
+n <- if(.Device == "postscript") 64 else 16#
+# Since for screen, larger n may give color allocation problem#
+demo.pal(n)
+x = c(rep(1,5),rep(2,3),rep(3,5))#
+y = c(7,5,6,8,4,5,4,6,3,5,4,6,2)#
+z = rnorm(13,mean=10,sd=5)#
+thisData = cbind(x,y,z)#
+thisData = as.data.frame(thisData)#
+thisData$x = factor(thisData$x)#
+levels(thisData$x) = c("A","B","C")#
+#
+# using the openxlsx package. The xlsx package requires Java and may need an additional step to use. #
+library(openxlsx)#
+#
+wb <- createWorkbook("My name here")#
+for (i in 1:length(levels(thisData$x))) {#
+	addWorksheet(wb, strtrim(as.character(levels(thisData$x)[i]),15), gridLines = FALSE)#
+  	tempData <- drop.levels(thisData[thisData$x == levels(thisData$x)[i],],reorder=FALSE)#
+	writeData(wb, tempData, sheet = i)#
+}#
+saveWorkbook(wb, "foo.xlsx")
+# using the openxlsx package. The xlsx package requires Java and may need an additional step to use. #
+library(openxlsx)#
+library(droplevels)#
+#
+wb <- createWorkbook("My name here")#
+for (i in 1:length(levels(thisData$x))) {#
+	addWorksheet(wb, strtrim(as.character(levels(thisData$x)[i]),15), gridLines = FALSE)#
+  	tempData <- drop.levels(thisData[thisData$x == levels(thisData$x)[i],],reorder=FALSE)#
+	writeData(wb, tempData, sheet = i)#
+}#
+saveWorkbook(wb, "foo.xlsx")
+# using the openxlsx package. The xlsx package requires Java and may need an additional step to use. #
+library(openxlsx)#
+library(drop.levels)#
+#
+wb <- createWorkbook("My name here")#
+for (i in 1:length(levels(thisData$x))) {#
+	addWorksheet(wb, strtrim(as.character(levels(thisData$x)[i]),15), gridLines = FALSE)#
+  	tempData <- drop.levels(thisData[thisData$x == levels(thisData$x)[i],],reorder=FALSE)#
+	writeData(wb, tempData, sheet = i)#
+}#
+saveWorkbook(wb, "foo.xlsx")
+# using the openxlsx package. The xlsx package requires Java and may need an additional step to use. #
+library(openxlsx)#
+library(droplevel)#
+#
+wb <- createWorkbook("My name here")#
+for (i in 1:length(levels(thisData$x))) {#
+	addWorksheet(wb, strtrim(as.character(levels(thisData$x)[i]),15), gridLines = FALSE)#
+  	tempData <- drop.levels(thisData[thisData$x == levels(thisData$x)[i],],reorder=FALSE)#
+	writeData(wb, tempData, sheet = i)#
+}#
+saveWorkbook(wb, "foo.xlsx")
+# using the openxlsx package. The xlsx package requires Java and may need an additional step to use. #
+library(openxlsx)#
+library(droplevel)#
+#
+wb <- createWorkbook("My name here")#
+for (i in 1:length(levels(thisData$x))) {#
+	addWorksheet(wb, strtrim(as.character(levels(thisData$x)[i]),15), gridLines = FALSE)#
+  	tempData <- droplevels(thisData[thisData$x == levels(thisData$x)[i],],reorder=FALSE)#
+	writeData(wb, tempData, sheet = i)#
+}#
+saveWorkbook(wb, "foo.xlsx")
+# output with sink() (the layout is aligned)#
+# change STDOUT#
+sink("sinkExamp.txt")#
+i = 1:10#
+outer(i, i, "*")#
+sink()#
+unlink("sink-examp.txt")
+cars
+mtcars
+names(mtcars)
+rownames(mtcars)
+rowIndex = grep("Mazda.*",rownames(mtcars))#
+mtcars[rowIndex,]
+colnames(mtcars)
+colIndex = grep("\w\w\w",colnames(mtcars))
+colIndex = grep("\\w\\w\\w",colnames(mtcars))
+colIndex
+rmtcars[,colIndex]
+mtcars[,colIndex]
+colnames(mtcars)#
+colIndex = grep("^\\w\\w\\w$",colnames(mtcars))#
+mtcars[,colIndex]
+data()
+AirPassengers
+BJsales
+Formaldehyde
+Harman23.cor
+Indometh
+LakeHuron
+LifeCycleSavings
+Loblolly
+Nile
+OrchardSprays
+PlantGrowth
+Puromycin
+Seatbelts
+Theoph
+Titanic
+ToothGrowth
+UCBAdmissions
+UKDriverDeaths
+UKgas
+USAccDeaths
+USJudgeRatings
+USPersonalExpenditure
+UScitiesD
+VADeaths
+WorldPhones
+austres
+attitude
+AirPassengers#
+BJsales#
+BJsales.lead#
+BOD#
+CO2#
+ChickWeight#
+DNase#
+EuStockMarkets#
+Formaldehyde#
+HairEyeColor#
+Harman23.cor#
+Harman74.cor#
+Indometh#
+InsectSprays#
+JohnsonJohnson#
+LakeHuron#
+LifeCycleSavings#
+Loblolly#
+Nile#
+Orange#
+OrchardSprays#
+PlantGrowth#
+Puromycin#
+Seatbelts#
+Theoph#
+Titanic#
+ToothGrowth#
+UCBAdmissions#
+UKDriverDeaths#
+UKgas#
+USAccDeaths#
+USArrests#
+USJudgeRatings#
+USPersonalExpenditure#
+UScitiesD#
+VADeaths#
+WWWusage#
+WorldPhones#
+ability.cov#
+airmiles#
+airquality#
+anscombe#
+attenu#
+attitude#
+austres#
+beaver1#
+beaver2#
+cars#
+chickwts#
+co2#
+crimtab#
+discoveries#
+esoph#
+euro#
+euro.cross#
+eurodist#
+faithful#
+fdeaths#
+freeny#
+freeny.x#
+freeny.y#
+infert#
+iris#
+iris3#
+islands#
+ldeaths#
+lh#
+longley#
+lynx#
+mdeaths#
+morley#
+mtcars#
+nhtemp#
+nottem#
+npk#
+occupationalStatus#
+precip#
+presidents#
+pressure#
+quakes#
+randu#
+rivers#
+rock#
+sleep#
+stack.loss#
+stack.x#
+stackloss#
+state.abb#
+state.area#
+state.center#
+state.division#
+state.name#
+state.region#
+state.x77#
+sunspot.month#
+sunspot.year#
+sunspots#
+swiss#
+treering#
+trees#
+uspop#
+volcano#
+warpbreaks#
+wo
+thisData = read.table("https://t-nagano.com/research/R/docs/Daphnia.txt",header=TRUE)
+# means of Growth.rate by Detergent#
+tapply(thisData$Growth.thisData$rate,thisData$Detergent,mean)
+head(thisData)
+# means of Growth.rate by Detergent#
+tapply(thisData$Growth.rate,thisData$Detergent,mean)
+# use list() for two-dimensional tables#
+# tapply(VALUE,list(ROW,CLUMN),FUNCTION)#
+tapply(thisData$Growth.rate,list(thisData$Daphnia,thisData$Detergent),mean)
+# using an anonymous function#
+tapply(thisData$Growth.rate,list(thisData$Daphnia,thisData$Detergent), function(x){sqrt(var(x)/length(x))})
+# a three-dimensional table#
+tapply(thisData$Growth.rate,list(thisData$Daphnia,thisData$Detergent,thisData$Water),mean)#
+# and use ftable() to flatten the table#
+ftable(tapply(thisData$Growth.rate,list(thisData$Daphnia,thisData$Detergent,thisData$Water),mean))
+# the fourth argument is an option for the function#
+tapply(thisData$Growth.rate,list(thisData$Daphnia,thisData$Detergent),mean,na.rm=TRUE)
+# saving the table data as a dataframe#
+# (alternatively, use as.data.frame.table())#
+attach(thisData)#
+dets <- as.vector(tapply(as.numeric(Detergent),list(Detergent,Daphnia),mean))#
+clones <- as.vector(tapply(as.numeric(Daphnia),list(Detergent,Daphnia),mean))#
+means <- as.vector(tapply(Growth.rate,list(Detergent,Daphnia),mean))#
+detergent <- levels(Detergent)[dets]#
+daphnia <- levels(Daphnia)[clones]#
+data.frame(means,detergent,daphnia)#
+#
+as.data.frame.table(tapply(Growth.rate,list(Daphnia,Detergent),mean))
+dets <- as.vector(tapply(as.numeric(Detergent),list(Detergent,Daphnia),mean, na.rm=TRUE))#
+clones <- as.vector(tapply(as.numeric(Daphnia),list(Detergent,Daphnia),mean, na.rm=TRUE))#
+means <- as.vector(tapply(Growth.rate,list(Detergent,Daphnia),mean))#
+detergent <- levels(Detergent)[dets]#
+daphnia <- levels(Daphnia)[clones]#
+data.frame(means,detergent,daphnia)
+dets
+as.vector(tapply(as.numeric(Detergent),list(Detergent,Daphnia),mean, na.rm=TRUE))
+as.vector(tapply(as.numeric(Detergent),list(Daphnia),mean, na.rm=TRUE))
+as.vector(tapply(as.numeric(Detergent),list(Detergent,Daphnia),mean, na.rm=TRUE))
+as.vector(tapply(Detergent,list(Detergent,Daphnia),mean, na.rm=TRUE))
+as.vector(tapply(as.numeric(Detergent),list(Detergent,Daphnia),mean, na.rm=TRUE))
+as.numeric(Detergent)
+Detergent
+as.numeric(levels(Detergent))
+levels(Detergent)
+as.factors(Detergent)
+as.factor(Detergent)
+levels(as.factors(Detergent))
+level(as.factors(Detergent))
+levels(as.factors(Detergent))
+levels(Detergent)
+as.factor(Detergent)
+levels(as.factor(Detergent))
+as.numeric(levels(as.factor(Detergent)))
+numeric(levels(as.factor(Detergent)))
+levels(as.factor(Detergent))
+dets <- as.vector(tapply(Detergent,list(Detergent,Daphnia),mean))
+as.vector(tapply(Detergent,list(Detergent,Daphnia),mean))
+tapply(Detergent,list(Detergent,Daphnia),mean)
+tapply(Detergent,list(Detergent,Daphnia),mean, na.rm=TRUE)
+tapply(Detergent,list(Detergent,Daphnia),mean)
+tapply(Growth.rate,list(Detergent,Daphnia),mean)
+as.vector(tapply(Growth.rate,list(Detergent,Daphnia),mean))
+dets <- as.vector(tapply(Growth.rate,list(Detergent,Daphnia),mean))#
+clones <- as.vector(tapply(Growth.rate,list(Detergent,Daphnia),mean))#
+means <- as.vector(tapply(Growth.rate,list(Detergent,Daphnia),mean))#
+detergent <- levels(Detergent)[dets]#
+daphnia <- levels(Daphnia)[clones]#
+data.frame(means,detergent,daphnia)
+dets
+clones
+means
+detergent
+as.data.frame.table(thisData)
+library(gtools)#
+# permutation and combination#
+# n: size of source, r: size of target#
+# number of permutations: n!/(n-r)!#
+# number of combinations: n!/(r!*(n-r)!)#
+x = c("A","B","C","D","E","F")#
+r = 4#
+perm = permutations(length(x),r,x,repeats.allowed=FALSE)#
+perm # 360 (6!/(6-4)! = 720/2 = 360)#
+#
+comb = combinations(length(x),r,x)#
+comb # 15 (6!/4!*(6-4)! = 720/24*2 = 15)
+yes
+################################################
+# R procedures#
+################################################
+#
+# To analyze the Modern Language Association (MLA)'s Enrollment Survey#
+# clear the cache#
+rm(list = ls())#
+#
+# require(lubridate) # for analyzing time and POSIXlt#
+library(ggplot2); library(gdata); library(xtable); #
+#library(lubridate)#
+library(ggthemes)#
+#library(gplots);#
+#install.packages("ggplot2"); install.packages("gdata"); install.packages("xtable"); install.packages("gplots"); install.packages("xlsx"); #
+#library(data.table)#
+library(openxlsx)#
+#
+#setwd("~/Desktop/")#
+setwd("~/Dropbox/Documents/USB/801AcademicJournals/LanguageProgramVitality2021/data/")#
+#
+# change the default width#
+width.default <- getOption("width"); options(width=120)#
+#
+# the add comma fonction#
+addComma<-function(x) {format(x, big.mark = ',', trim = TRUE, scientific = FALSE)}#
+#
+# creating a notin function#
+`%notin%` <- Negate(`%in%`)#
+#
+# importing data#
+thisData <- read.csv("MLA_Historical_enrollments_1958-2016_(3-13-19).csv", sep = ",")#
+# filling empty "UNIV_NAME_HISTORY"#
+thisData[thisData$UNIV_NAME_HISTORY=="",c("UNIV_NAME_HISTORY")] <- thisData[thisData$UNIV_NAME_HISTORY=="",c("UNIV")]#
+thisData$SRVY_YEAR <- as.factor(thisData$SRVY_YEAR)#
+thisData$TERM <- as.factor(thisData$TERM)#
+thisData$YR.TERM <- as.factor(thisData$YR.TERM)#
+thisData$UNIV <- as.factor(thisData$UNIV)#
+thisData$UNIV_NAME_HISTORY <- as.factor(thisData$UNIV_NAME_HISTORY)#
+thisData$CAMPUS <- as.factor(thisData$CAMPUS)#
+thisData$STATE <- as.factor(thisData$STATE)#
+thisData$STATE_ID <- as.factor(thisData$STATE_ID)#
+thisData$MLA.ICLEVEL <- as.factor(thisData$MLA.ICLEVEL)#
+levels(thisData$MLA.ICLEVEL) = c("4 year","2 year")#
+thisData$LANG_CODE <- as.factor(thisData$LANG_CODE)#
+thisData$CITY <- as.factor(thisData$CITY)#
+thisData$LANGUAGE <- as.factor(thisData$LANGUAGE)#
+thisData$LANG_REGION <- as.factor(thisData$LANG_REGION)#
+thisData$OTHER_LANG <- as.factor(thisData$OTHER_LANG)#
+thisData$GEOGRAPHY_CODE <- as.factor(thisData$GEOGRAPHY_CODE)#
+thisData$N_RESP <- as.factor(thisData$N_RESP)#
+thisData$ZERO_ERL <- as.factor(thisData$ZERO_ERL)#
+#
+# Between 1963 - 1972 many institutions did not report "UNDERGRAD_TOTAL" and "GRAD_TOTAL". We beed to use "ALL_LEVEL_TOTAL" instead#
+thisData[is.na(thisData$UNDERGRAD_TOTAL),c("UNDERGRAD_TOTAL")] <- thisData[is.na(thisData$UNDERGRAD_TOTAL),c("ALL_LEVEL_TOTAL")]#
+#
+summary(thisData)#
+#
+# extracting the aggregated enrollment data by type (2 vs. 4-year)#
+thisData.type <- as.data.frame(xtabs(UNDERGRAD_TOTAL ~ YR.TERM + MLA.ICLEVEL, data = thisData))#
+# removing years with anomal data#
+thisData.type <- thisData.type[thisData.type$YR.TERM %notin% c("1958 Fall", "1961 Fall", "1969 Summer","1971 Summer", "2016 Summer"),]#
+colnames(thisData.type) <- c("Year","Type","Enrollment")#
+#
+# plotting#
+p <- ggplot(thisData.type, aes(Year, Enrollment, group = Type)) + #
+	geom_point(aes(color=Type)) + #
+	geom_line(aes(color=Type)) + #
+	geom_text(aes(label=paste(addComma(Enrollment),sep="")), #
+		position=position_dodge2(width=0.1, preserve="single", padding=5), vjust=2, size=2.5)
+# using ggplot theme and modifying axis labels#
+p + theme_hc()+ scale_colour_hc() +#
+	theme(axis.text.x = element_text(angle = 40, vjust = 0.8, hjust=1, size=8)) +#
+	scale_y_continuous(name = "Enrollment", limits = c(0, 6000),#
+					 breaks = c(0, 250000, 500000, 750000, 100000, 1250000), position = 'left',#
+					 labels = c('0', '250K', '500K', '750K', '1M', "1.25M")) +#
+	ggtitle("Enrollment in institutions of higher education institutions by Type and type of institution",#
+		subtitle="Data from Language Enrollment Database, 1958–2016\n(https://apps.mla.org/flsurvey_search)") +#
+	theme(plot.margin = unit(c(1,1,1,1), "cm")) + #
+	theme(axis.title.x = element_text(margin = margin(t = 20)))
+# using ggplot theme and modifying axis labels#
+p + theme_hc()+ scale_colour_hc() +#
+	theme(axis.text.x = element_text(angle = 40, vjust = 0.8, hjust=1, size=8)) +#
+	scale_y_continuous(name = "Enrollment", limits = c(0, 1250000),#
+					 breaks = c(0, 250000, 500000, 750000, 100000, 1250000), position = 'left',#
+					 labels = c('0', '250K', '500K', '750K', '1M', "1.25M")) +#
+	ggtitle("Enrollment in institutions of higher education institutions by Type and type of institution",#
+		subtitle="Data from Language Enrollment Database, 1958–2016\n(https://apps.mla.org/flsurvey_search)") +#
+	theme(plot.margin = unit(c(1,1,1,1), "cm")) + #
+	theme(axis.title.x = element_text(margin = margin(t = 20)))
+# using ggplot theme and modifying axis labels#
+p + theme_hc()+ scale_colour_hc() +#
+	theme(axis.text.x = element_text(angle = 40, vjust = 0.8, hjust=1, size=8)) +#
+	scale_y_continuous(name = "Enrollment", limits = c(0, 1250000),#
+					 breaks = c(0, 250000, 500000, 750000, 1000000, 1250000), position = 'left',#
+					 labels = c('0', '250K', '500K', '750K', '1M', "1.25M")) +#
+	ggtitle("Enrollment in institutions of higher education institutions by Type and type of institution",#
+		subtitle="Data from Language Enrollment Database, 1958–2016\n(https://apps.mla.org/flsurvey_search)") +#
+	theme(plot.margin = unit(c(1,1,1,1), "cm")) + #
+	theme(axis.title.x = element_text(margin = margin(t = 20)))
+# using ggplot theme and modifying axis labels#
+p + theme_hc()+ scale_colour_hc() +#
+	theme(axis.text.x = element_text(angle = 40, vjust = 0.8, hjust=1, size=8)) +#
+	scale_y_continuous(name = "Enrollment", limits = c(0, 1250000),#
+					 breaks = c(0, 250000, 500000, 750000, 1000000, 1250000), position = 'left',#
+					 labels = c('0', '250K', '500K', '750K', '1M', "1.25M")) +#
+	ggtitle("Enrollment in institutions of higher education institutions by Type and type of institution",#
+		subtitle="Data from Language Enrollment Database, 1958–2016\n(https://apps.mla.org/flsurvey_search)") +#
+	theme(plot.margin = unit(c(1,1,1,1), "cm")) + #
+	theme(axis.title.x = element_text(margin=margin(t=5)))
+# using ggplot theme and modifying axis labels#
+p + theme_hc()+ scale_colour_hc() +#
+	theme(axis.text.x = element_text(angle = 40, vjust = 0.8, hjust=1, size=8)) +#
+	scale_y_continuous(name = "Enrollment", limits = c(0, 1250000),#
+					 breaks = c(0, 250000, 500000, 750000, 1000000, 1250000), position = 'left',#
+					 labels = c('0', '250K', '500K', '750K', '1M', "1.25M")) +#
+	ggtitle("Enrollment in institutions of higher education institutions by Type and type of institution",#
+		subtitle="Data from Language Enrollment Database, 1958–2016\n(https://apps.mla.org/flsurvey_search)") +#
+	theme(plot.margin = unit(c(1,1,1,1), "cm")) + #
+	theme(axis.title.x = element_text(margin=margin(t=10)))
+ggsave("LanguageProgramVitality2021Fig02.pdf", width = 10, height = 6)
+# using ggplot theme and modifying axis labels#
+p + theme_hc()+ scale_colour_hc() +#
+	theme(axis.text.x = element_text(angle = 40, vjust = 0.8, hjust=1, size=8)) +#
+	scale_y_continuous(name = "Enrollment", limits = c(0, 1250000),#
+					 breaks = c(0, 250000, 500000, 750000, 1000000, 1250000), position = 'left',#
+					 labels = c('0', '250K', '500K', '750K', '1M', "1.25M")) +#
+	ggtitle("Undergraduate Modern Language Enrollment by Year and Institutional Type",#
+		subtitle="Data from Language Enrollment Database, 1958–2016 (https://apps.mla.org/flsurvey_search)") +#
+	theme(plot.margin = unit(c(1,1,1,1), "cm")) + #
+	theme(axis.title.x = element_text(margin=margin(t=10)))#
+#
+ggsave("LanguageProgramVitality2021Fig02.pdf", width = 10, height = 6)
