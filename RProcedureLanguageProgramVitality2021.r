@@ -1,5 +1,7 @@
 ###############################################
 # R procedures
+# Tomonori Nagano <tnagano@lagcc.cuny.edu>
+# https://github.com/tnagano22/LanguageProgramVitality2023
 ###############################################
 # To analyze the Modern Language Association (MLA)'s Enrollment Survey
 # clear the cache
@@ -8,7 +10,8 @@ rm(list = ls())
 # load packages
 library(ggplot2); library(gdata); library(ggthemes); library(openxlsx); library(plyr)
 
-setwd("~/Desktop/temp")
+# moved to the directory
+setwd("~/Desktop/xxx")
 
 # change the default width
 width.default <- getOption("width"); options(width=120)
