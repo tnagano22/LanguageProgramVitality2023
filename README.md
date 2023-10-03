@@ -55,8 +55,7 @@ rm(list = ls())
 library(ggplot2); library(gdata); library(xtable); library(ggthemes)
 library(openxlsx); library(reshape); library(plyr)
 
-#setwd("~/Desktop/")
-setwd("~/Dropbox/Documents/USB/801AcademicJournals/LanguageProgramVitality2021/")
+setwd("~/Desktop/")
 
 # change the default width
 width.default <- getOption("width"); options(width=120)
