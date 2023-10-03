@@ -44,7 +44,7 @@ The enrollment data have been collected from the following sources:
     fall 1991” (pp.76-77). The data set is available in the data
     directory as a csv file.
 
-## preambles
+## Setting up the environment
 
 The following packages and functions are used in this analysis.
 
